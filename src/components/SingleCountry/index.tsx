@@ -1,7 +1,8 @@
-import axios from 'axios'
 import { useContext, useEffect, useState } from 'react'
 import { useParams } from 'react-router-dom'
 import { ThemeContext } from '../../providers/theme'
+import { singleCountry } from '../../utils/singleCountry'
+import { BorderCountries } from '../Borders'
 import {
 	Flag,
 	SectionFlag,
@@ -38,13 +39,7 @@ const SingleCountry: React.FC = () => {
 	const { country } = useParams<ParamsProps>()
 
 	useEffect(() => {
-		axios
-			.get(
-				`https://restcountries.eu/rest/v2/name/${country.toLowerCase()}?fullText=true`
-			)
-			.then(resp => {
-				setCountryInfo(resp.data)
-			})
+		singleCountry(country).then(resp => setCountryInfo(resp))
 	}, [country])
 
 	return (
@@ -81,14 +76,7 @@ const SingleCountry: React.FC = () => {
 									<label key={index}>{lang.name}</label>
 								))}
 							</p>
-							<p>
-								Border Countries:
-								{element.borders.map((el, index) => (
-									<a key={index} href='www.google.com'>
-										{el}
-									</a>
-								))}
-							</p>
+							<BorderCountries links={element.borders} />
 						</AsideInfo>
 					</SingleCountryWrapper>
 				)
