@@ -18,7 +18,14 @@ const SectionFlag = styled.section`
 
 const Flag = styled.img`
 	width: 90%;
+	max-width: 450px;
+	max-height: 300px;
 	margin: 10px auto;
+
+	@media screen and (max-width: 768px) {
+		max-width: 200px;
+		max-height: 150px;
+	}
 `
 const AsideInfo = styled.aside`
 	display: grid;

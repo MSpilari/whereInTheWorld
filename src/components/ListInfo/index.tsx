@@ -1,19 +1,22 @@
+import { LabelStyled } from './styles'
+
 interface ListInfoProps {
-	info: []
+	infoArr?: string[]
+	infoObj?: { name: string }[]
 	text: string
 }
 
-interface ElementProps {
-	name?: string
-}
-
-const ListInfo: React.FC<ListInfoProps> = ({ info, text }) => {
+const ListInfo: React.FC<ListInfoProps> = ({ infoArr, infoObj, text }) => {
 	return (
 		<p>
 			{text}
-			{info.map((element: ElementProps, index) => (
-				<label key={index}>{element.name || element}</label>
-			))}
+			{infoArr
+				? infoArr?.map((element, index) => (
+						<LabelStyled key={index}>{element}</LabelStyled>
+				  ))
+				: infoObj?.map((element, index) => (
+						<LabelStyled key={index}>{element.name}</LabelStyled>
+				  ))}
 		</p>
 	)
 }

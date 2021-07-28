@@ -60,24 +60,15 @@ const SingleCountry: React.FC = () => {
 							<label>Sub Region: {element.subregion}</label>
 							<label>Capital: {element.capital}</label>
 
-							<p>
-								Top Level Domain:
-								{element.topLevelDomain.map((domain, index) => (
-									<label key={index}>{domain}</label>
-								))}
-							</p>
-							<p>
-								Currencies:
-								{element.currencies.map((curr, index) => (
-									<label key={index}>{curr.name}</label>
-								))}
-							</p>
-							<p>
-								Languages:
-								{element.languages.map((lang, index) => (
-									<label key={index}>{lang.name}</label>
-								))}
-							</p>
+							<ListInfo
+								text='Top Level Domain: '
+								infoArr={element.topLevelDomain}
+							/>
+
+							<ListInfo text='Currencies: ' infoObj={element.currencies} />
+
+							<ListInfo text='Languages: ' infoObj={element.languages} />
+
 							<BorderCountries links={element.borders} />
 						</AsideInfo>
 					</SingleCountryWrapper>
