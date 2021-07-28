@@ -31,7 +31,7 @@ const AsideInfo = styled.aside`
 		'cap cap topDom topDom'
 		'cur cur topDom topDom'
 		'lang lang lang lang'
-		'borderC border border border';
+		'borderC borderC borderC borderC';
 
 	& label,
 	& p {
@@ -67,6 +67,9 @@ const AsideInfo = styled.aside`
 
 	& p:nth-child(10) {
 		grid-area: borderC;
+		display: flex;
+		flex-wrap: wrap;
+		align-items: center;
 	}
 `
 

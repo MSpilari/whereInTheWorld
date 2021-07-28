@@ -3,6 +3,7 @@ import { useParams } from 'react-router-dom'
 import { ThemeContext } from '../../providers/theme'
 import { singleCountry } from '../../utils/singleCountry'
 import { BorderCountries } from '../Borders'
+import { ListInfo } from '../ListInfo'
 import {
 	Flag,
 	SectionFlag,
@@ -58,6 +59,7 @@ const SingleCountry: React.FC = () => {
 							<label>Region: {element.region}</label>
 							<label>Sub Region: {element.subregion}</label>
 							<label>Capital: {element.capital}</label>
+
 							<p>
 								Top Level Domain:
 								{element.topLevelDomain.map((domain, index) => (
